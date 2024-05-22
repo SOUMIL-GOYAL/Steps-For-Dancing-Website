@@ -4,6 +4,16 @@
  makesizeinshowcase();
  navactive();
  background();
+ youtube();
+
+ $('document').ready(function() {
+
+     // $('iframe[src^="https://www.youtube.com/embed/"]').each(function() {
+     //     $(this).replaceWith('<div class="js-lazyYT" data-youtube-id="' + $(this).attr("src").split("embed/")[1] + '" data-width="' + $(this).attr("width") + '" data-height="' + $(this).attr("height") + '"></div>');
+     // });
+     // $('.js-lazyYT').lazyYT();
+ });
+
 
  window.addEventListener("resize", function() {
      sizeit();
@@ -12,7 +22,44 @@
      background();
  });
 
+
+
  $("a[href^=http").prop("target", "_blank");
+
+ function youtube() {
+     $('iframe[src^="https://www.youtube.com/embed/"]').each(function() {
+         $(this).replaceWith('<div width="560" height="315" class="embed-youtube" data-video-id="' + $(this).attr("src").split("embed/")[1] + '"><div class="embed-youtube-play"></div></div>');
+     });
+     let YouTubeContainers = document.querySelectorAll(".embed-youtube");
+
+     // Iterate over every YouTube container 
+     for (let i = 0; i < YouTubeContainers.length; i++) {
+         let container = YouTubeContainers[i];
+         let imageSource = "https://img.youtube.com/vi/" + container.dataset.videoId + "/sddefault.jpg";
+
+         // Load the Thumbnail Image asynchronously
+         let image = new Image();
+         image.src = imageSource;
+         image.addEventListener("load", function() {
+             container.appendChild(image);
+         });
+
+         // When the user clicks on the container, load the embedded YouTube video
+         container.addEventListener("click", function() {
+             let iframe = document.createElement("iframe");
+
+             iframe.setAttribute("frameborder", "0");
+             iframe.setAttribute("allowfullscreen", "");
+             iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+             // Important: add the autoplay GET parameter, otherwise the user would need to click over the YouTube video again to play it 
+             iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.dataset.videoId + "?rel=0&showinfo=0&autoplay=1");
+
+             // Clear Thumbnail and load the YouTube iframe
+             this.innerHTML = "";
+             this.appendChild(iframe);
+         });
+     }
+ }
 
  function togglenav() {
      $("#scrollbox").toggleClass("shown");
@@ -654,6 +701,6 @@
          //console.log(realheights);0
      var finalstyle = "linear-gradient(rgba(238, 130, 238, .2) 0px, rgba(255, 0, 0, .2) " + realheights[0] + "px, rgba(255, 165, 0, .2) " + realheights[1] + "px, rgba(255, 255, 0, .2) " + realheights[2] + "px,  rgba(0, 255, 0, .2) " + realheights[3] + "px, rgba(0, 0, 255, .2) " + realheights[4] + "px, rgba(75, 0, 130, .2) " + realheights[5] + "px, rgba(238, 130, 238, .2) " + realheights[6] + "px, rgba(255, 0, 0, .2) " + realheights[7] + "px)";
      $("body").css("background-image", finalstyle);
-     console.log(finalstyle);
+     //console.log(finalstyle);
 
  }

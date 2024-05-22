@@ -270,9 +270,15 @@ form {
     text-align: center;
 }
 
-iframe {
+iframe,
+.embed-youtube {
     width: 80%;
     height: auto;
+    margin: 0;
+}
+
+.embed-youtube img {
+    max-height: 100%;
 }
 
 .content-holder {
