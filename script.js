@@ -654,6 +654,6 @@
          //console.log(realheights);0
      var finalstyle = "linear-gradient(rgba(238, 130, 238, .2) 0px, rgba(255, 0, 0, .2) " + realheights[0] + "px, rgba(255, 165, 0, .2) " + realheights[1] + "px, rgba(255, 255, 0, .2) " + realheights[2] + "px,  rgba(0, 255, 0, .2) " + realheights[3] + "px, rgba(0, 0, 255, .2) " + realheights[4] + "px, rgba(75, 0, 130, .2) " + realheights[5] + "px, rgba(238, 130, 238, .2) " + realheights[6] + "px, rgba(255, 0, 0, .2) " + realheights[7] + "px)";
      $("body").css("background-image", finalstyle);
-     console.log(finalstyle);
+     //console.log(finalstyle);
 
  }
