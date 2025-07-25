@@ -657,3 +657,91 @@
      //console.log(finalstyle);
 
  }
+
+//Calander
+document.addEventListener("DOMContentLoaded", function() {
+    const events = [
+        { date: '2025-08-31', label: 'Sewa Dance Competition', color: 'event-purple' },
+        { date: '2025-10-11', label: 'Mantra Durga Puja Performance', color: 'event-purple' },
+        { date: '2025-12-07', end: '2025-12-13', label: 'Kathak Exams', color: 'event-red' },
+        { date: '2025-12-20', label: 'Bollywood Workshop', color: 'event-yellow' },
+        { date: '2025-12-20', label: 'Kathak Workshop', color: 'event-orange' }
+    ];
+
+    let currentYear = 2025;
+    let currentMonth = 7; // August (0-based index)
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function getEventsForDay(year, month, day) {
+        const dateStr = `${year}-${pad(month+1)}-${pad(day)}`;
+        return events.filter(ev => {
+            if (ev.end) {
+                return dateStr >= ev.date && dateStr <= ev.end;
+            }
+            return ev.date === dateStr;
+        });
+    }
+
+    function renderCalendar(year, month) {
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        document.getElementById('calendarMonth').textContent = `${monthNames[month]} ${year}`;
+        document.getElementById('prevMonth').style.display = (year === 2025 && month === 7) ? 'none' : 'inline';
+        document.getElementById('nextMonth').style.display = (year === 2030 && month === 11) ? 'none' : 'inline';
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month+1, 0).getDate();
+
+        let html = '<table class="calendar-table"><tr>';
+        ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d => {
+            html += `<th>${d}</th>`;
+        });
+        html += '</tr><tr>';
+
+        for (let i = 0; i < firstDay; i++) html += '<td></td>';
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const eventsToday = getEventsForDay(year, month, day);
+            if (eventsToday.length > 0) {
+                html += `<td>`;
+                eventsToday.forEach((ev, idx) => {
+                    if (idx === 0) {
+                        html += `<div class="${ev.color}" title="${ev.label}">${day}<br><span class="event-label">${ev.label}</span></div>`;
+                    } else {
+                        html += `<div class="${ev.color}" title="${ev.label}"><span class="event-label">${ev.label}</span></div>`;
+                    }
+                });
+                html += `</td>`;
+            } else {
+                html += `<td>${day}</td>`;
+            }
+            if ((firstDay + day) % 7 === 0 && day !== daysInMonth) html += '</tr><tr>';
+        }
+        html += '</tr></table>';
+        document.getElementById('calendar-table-container').innerHTML = html;
+    }
+
+    document.getElementById('prevMonth').onclick = function() {
+        if (currentMonth === 0) {
+            currentYear--;
+            currentMonth = 11;
+        } else {
+            currentMonth--;
+        }
+        renderCalendar(currentYear, currentMonth);
+    };
+    document.getElementById('nextMonth').onclick = function() {
+        if (currentMonth === 11) {
+            currentYear++;
+            currentMonth = 0;
+        } else {
+            currentMonth++;
+        }
+        renderCalendar(currentYear, currentMonth);
+    };
+
+    renderCalendar(currentYear, currentMonth);
+});

@@ -777,3 +777,56 @@ label:hover {
         display: none;
     }
 }
+
+/* Calendar */
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: #222;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+.calendar-table th, .calendar-table td {
+    border: 1px solid #444;
+    width: 14.2%;
+    height: 60px;
+    text-align: left;
+    vertical-align: top;
+    padding: 6px;
+    position: relative;
+}
+.event-label {
+    display: block;
+    font-size: 0.9em;
+    margin-top: 4px;
+    font-weight: bold;
+}
+.event-purple {
+    background: #7c3aed;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+}
+.event-red {
+    background: #e53e3e;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+}
+.event-yellow {
+    background: #facc15;
+    color: #222;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+}
+.event-orange {
+    background: #fb923c;
+    color: #222;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+}
