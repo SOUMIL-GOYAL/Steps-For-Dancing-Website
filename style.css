@@ -459,21 +459,75 @@ label:hover {
 }
 
 #schedule {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
+    font-family: 'Poppins', Arial, sans-serif;
+    border-collapse: separate;
+    border-spacing: 0;
     width: 100%;
-    background-color: white;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-#schedule td,
 #schedule th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    background: var(--colortheme);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 18px 12px;
+    border: none;
+    letter-spacing: 0.5px;
+}
+
+#schedule td {
+    padding: 16px 12px;
+    font-size: 1.5rem;
+    border: none;
+    color: #222;
 }
 
 #schedule tr:nth-child(even) {
     background-color: var(--subcolortheme);
+}
+
+#schedule tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+#schedule tr:hover {
+    background-color: #eaf3fb;
+    transition: background 0.2s;
+}
+
+@media (max-width: 700px) {
+    #schedule, #schedule thead, #schedule tbody, #schedule th, #schedule td, #schedule tr {
+        display: block;
+        width: 100%;
+    }
+    #schedule thead {
+        display: none;
+    }
+    #schedule tr {
+        margin-bottom: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        border-radius: 10px;
+        background: #fff;
+        padding: 10px 0;
+    }
+    #schedule td {
+        padding: 10px 16px;
+        text-align: left;
+        position: relative;
+        font-size: 0.98rem;
+    }
+    #schedule td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--colortheme);
+        display: block;
+        margin-bottom: 4px;
+    }
 }
 
 
@@ -560,7 +614,7 @@ label:hover {
 }
 
 .back {
-    background: yellow;
+    background: #fafc5d;
     transform: rotateY(180deg);
     border-radius: 4px;
 }
@@ -609,6 +663,10 @@ label:hover {
 #aboutteacher {
     display: grid;
     gap: 20px;
+}
+
+.abouttext{
+    font-size: 1.1vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -791,5 +849,3 @@ label:hover {
         display: none;
     }
 }
-
-/* Calendar */
