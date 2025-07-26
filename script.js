@@ -656,16 +656,47 @@
      $("body").css("background-image", finalstyle);
      //console.log(finalstyle);
 
- }
+}
 
-//Calander
+//calendar
 document.addEventListener("DOMContentLoaded", function() {
     const events = [
-        { date: '2025-08-31', label: 'Sewa Dance Competition', color: 'event-purple' },
+        { date: '2025-08-30', label: 'Sewa Dance Competition', color: 'event-purple' },
         { date: '2025-10-11', label: 'Mantra Durga Puja Performance', color: 'event-purple' },
         { date: '2025-12-07', end: '2025-12-13', label: 'Kathak Exams', color: 'event-red' },
-        { date: '2025-12-20', label: 'Bollywood Workshop', color: 'event-yellow' },
-        { date: '2025-12-20', label: 'Kathak Workshop', color: 'event-orange' }
+        { date: '2026-02-22', label: 'Baithak', color: 'event-green' },
+        { date: '2026-05-17', label: 'Bhaitak', color: 'event-green' },
+        { 
+            recurring: true,
+            start: '2025-08-10',
+            end: '2025-08-24',
+            label: 'Kathak Classes',
+            color: 'event-yellow',
+            dayOfWeek: 0 // Monday (0=Sunday, 1=Monday, ...)
+        },
+        { 
+            recurring: true,
+            start: '2025-09-07',
+            end: '2025-11-23',
+            label: 'Kathak Classes',
+            color: 'event-yellow',
+            dayOfWeek: 0 
+        },
+        { 
+            recurring: true,
+            start: '2025-12-07',
+            end: '2025-12-14',
+            label: 'Kathak Classes',
+            color: 'event-yellow',
+            dayOfWeek: 0 
+        },
+        { date: '2026-01-17', label: 'Mixed Media MATCH Performance', color: 'event-purple' },
+        //holidays
+        { date: '2025-08-31', label: 'Labor Day', color: 'event-white' },
+        { date: '2025-11-30', label: 'Thanksgiving Holiday', color: 'event-white' },
+        { date: '2025-12-21', label: 'Winter Holiday', color: 'event-white' },
+        { date: '2025-12-28', label: 'Winter Holiday', color: 'event-white' },
+        { date: '2026-05-31', end: '2026-07-31', label: 'Summer Break', color: 'event-white' },
     ];
 
     let currentYear = 2025;
@@ -673,9 +704,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function pad(n) { return n < 10 ? '0' + n : n; }
 
+    // Helper functions for date-only comparison
+    function isSameOrAfter(d1, d2) {
+        return d1.getFullYear() > d2.getFullYear() ||
+            (d1.getFullYear() === d2.getFullYear() && d1.getMonth() > d2.getMonth()) ||
+            (d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() >= d2.getDate());
+    }
+    function isSameOrBefore(d1, d2) {
+        return d1.getFullYear() < d2.getFullYear() ||
+            (d1.getFullYear() === d2.getFullYear() && d1.getMonth() < d2.getMonth()) ||
+            (d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() <= d2.getDate());
+    }
+
     function getEventsForDay(year, month, day) {
         const dateStr = `${year}-${pad(month+1)}-${pad(day)}`;
+        const dateObj = new Date(year, month, day);
         return events.filter(ev => {
+            if (ev.recurring) {
+                const startDate = new Date(ev.start);
+                const endDate = ev.end ? new Date(ev.end) : null;
+                return (
+                    isSameOrAfter(dateObj, startDate) &&
+                    (!endDate || isSameOrBefore(dateObj, endDate)) &&
+                    dateObj.getDay() === ev.dayOfWeek
+                );
+            }
             if (ev.end) {
                 return dateStr >= ev.date && dateStr <= ev.end;
             }
