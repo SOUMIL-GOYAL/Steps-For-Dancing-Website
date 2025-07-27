@@ -617,6 +617,9 @@ label:hover {
     background: #fafc5d;
     transform: rotateY(180deg);
     border-radius: 4px;
+    font-size: 4vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
 }
 
 .front {
@@ -666,7 +669,7 @@ label:hover {
 }
 
 .abouttext{
-    font-size: 1.1vw;
+    font-size: 1vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -848,4 +851,15 @@ label:hover {
     #scrollbox {
         display: none;
     }
+}
+
+
+/* Register Form */
+#gform {
+    border: 0;
+    width: 100vw;
+    max-width: 700px;
+    height: 900px;
+    min-height: 400px;
+    overflow: auto;
 }
