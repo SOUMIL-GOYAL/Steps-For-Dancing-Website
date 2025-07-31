@@ -732,7 +732,7 @@ label:hover {
 }
 
 #home>h1 {
-    font-size: 80px;
+    font-size: 4.5vw;
     font-weight: 900;
 }
 
@@ -862,4 +862,27 @@ label:hover {
     height: 900px;
     min-height: 400px;
     overflow: auto;
+}
+
+.logo-bg-svg {
+    position: absolute;
+    right: 0;
+    transform: translateY(-100%);
+    transform: translateX(-5%);
+    width: 67vw;
+    max-width: 95vw;
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.logo-shadow {
+    position: relative;
+    z-index: 1;
+    /* Strong shadow for overlap effect */
+    text-shadow:
+        2px 2px 8px rgba(0,0,0,0.35),
+        0 4px 16px rgba(0,0,0,0.18);
 }
