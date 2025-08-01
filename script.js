@@ -656,6 +656,4 @@
      $("body").css("background-image", finalstyle);
      //console.log(finalstyle);
 
-}
-
-//calendar
+ }

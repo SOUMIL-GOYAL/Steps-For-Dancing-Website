@@ -13,6 +13,7 @@
 
 body {
     color: var(--texttheme);
+    overflow-x: hidden;
     padding-bottom: 0;
 }
 
@@ -396,7 +397,7 @@ label:hover {
 }
 
 .filteritem {
-    background-color: var(--subcolortheme);
+    background-color: #f2f3f56f;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -405,6 +406,10 @@ label:hover {
     display: none;
     color: #45505b;
     animation-fill-mode: forwards;
+    padding-top: 5px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #000000;
 }
 
 .filterframe {
@@ -617,7 +622,7 @@ label:hover {
     background: #fafc5d;
     transform: rotateY(180deg);
     border-radius: 4px;
-    font-size: 4vw;
+    font-size: 1.1vw;
     padding-left: 3.5vw;
     padding-right: 3.5vw;
 }
@@ -868,7 +873,7 @@ label:hover {
     position: absolute;
     right: 0;
     transform: translateY(-100%);
-    transform: translateX(-5%);
+    transform: translateX(15%);
     width: 67vw;
     max-width: 95vw;
     opacity: 0.18;
@@ -885,4 +890,9 @@ label:hover {
     text-shadow:
         2px 2px 8px rgba(0,0,0,0.35),
         0 4px 16px rgba(0,0,0,0.18);
+}
+
+.showcaseimage {
+    width: 286.7px;
+    height: auto;
 }
