@@ -397,7 +397,6 @@ label:hover {
 }
 
 .filteritem {
-    background-color: #f2f3f56f;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -406,15 +405,21 @@ label:hover {
     display: none;
     color: #45505b;
     animation-fill-mode: forwards;
-    padding-top: 5px;
-    border-radius: 10px;
     border: 1px solid;
     border-color: #000000;
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    -webkit-backdrop-filter: blur(30px); /* For Safari compatibility */
+    backdrop-filter: blur(30px); /* Blurs the content behind the element */
+    border-radius: 12px; /* Rounded corners for a softer look */
 }
 
 .filterframe {
     width: 90%;
     padding: 10px;
+}
+
+.embed {
+    padding-top: 20px;
 }
 
 #rowofitems {
@@ -619,12 +624,21 @@ label:hover {
 }
 
 .back {
-    background: #fafc5d;
+    background: #fef667;
     transform: rotateY(180deg);
     border-radius: 4px;
-    font-size: 1.1vw;
+    font-size: .9vw;
     padding-left: 3.5vw;
     padding-right: 3.5vw;
+}
+
+@media screen and (max-width: 1000px) {
+    .back {
+        font-size: 4.2vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    
 }
 
 .front {
