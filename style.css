@@ -13,6 +13,7 @@
 
 body {
     color: var(--texttheme);
+    overflow-x: hidden;
     padding-bottom: 0;
 }
 
@@ -72,6 +73,16 @@ body {
     position: relative;
     top: 53px;
     left: calc(50% - 60px);
+}
+
+.semi-sectionheader {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
@@ -386,7 +397,6 @@ label:hover {
 }
 
 .filteritem {
-    background-color: var(--subcolortheme);
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -395,11 +405,21 @@ label:hover {
     display: none;
     color: #45505b;
     animation-fill-mode: forwards;
+    border: 1px solid;
+    border-color: #000000;
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    -webkit-backdrop-filter: blur(30px); /* For Safari compatibility */
+    backdrop-filter: blur(30px); /* Blurs the content behind the element */
+    border-radius: 12px; /* Rounded corners for a softer look */
 }
 
 .filterframe {
     width: 90%;
     padding: 10px;
+}
+
+.embed {
+    padding-top: 20px;
 }
 
 #rowofitems {
@@ -444,22 +464,80 @@ label:hover {
 
 /* Class Schedule */
 
-#schedule {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    background-color: white;
+#classschedule {
+    margin-bottom: 20px;
 }
 
-#schedule td,
+#schedule {
+    font-family: 'Poppins', Arial, sans-serif;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
 #schedule th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    background: var(--colortheme);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 18px 12px;
+    border: none;
+    letter-spacing: 0.5px;
+}
+
+#schedule td {
+    padding: 16px 12px;
+    font-size: 1.5rem;
+    border: none;
+    color: #222;
 }
 
 #schedule tr:nth-child(even) {
     background-color: var(--subcolortheme);
+}
+
+#schedule tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+#schedule tr:hover {
+    background-color: #eaf3fb;
+    transition: background 0.2s;
+}
+
+@media (max-width: 700px) {
+    #schedule, #schedule thead, #schedule tbody, #schedule th, #schedule td, #schedule tr {
+        display: block;
+        width: 100%;
+    }
+    #schedule thead {
+        display: none;
+    }
+    #schedule tr {
+        margin-bottom: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        border-radius: 10px;
+        background: #fff;
+        padding: 10px 0;
+    }
+    #schedule td {
+        padding: 10px 16px;
+        text-align: left;
+        position: relative;
+        font-size: 0.98rem;
+    }
+    #schedule td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--colortheme);
+        display: block;
+        margin-bottom: 4px;
+    }
 }
 
 
@@ -546,9 +624,21 @@ label:hover {
 }
 
 .back {
-    background: yellow;
+    background: #fef667;
     transform: rotateY(180deg);
     border-radius: 4px;
+    font-size: .9vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+}
+
+@media screen and (max-width: 1000px) {
+    .back {
+        font-size: 4.2vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    
 }
 
 .front {
@@ -595,6 +685,10 @@ label:hover {
 #aboutteacher {
     display: grid;
     gap: 20px;
+}
+
+.abouttext{
+    font-size: 1vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -657,7 +751,7 @@ label:hover {
 }
 
 #home>h1 {
-    font-size: 80px;
+    font-size: 4.5vw;
     font-weight: 900;
 }
 
@@ -776,4 +870,43 @@ label:hover {
     #scrollbox {
         display: none;
     }
+}
+
+
+/* Register Form */
+#gform {
+    border: 0;
+    width: 100vw;
+    max-width: 700px;
+    height: 900px;
+    min-height: 400px;
+    overflow: auto;
+}
+
+.logo-bg-svg {
+    position: absolute;
+    right: 0;
+    transform: translateY(-100%);
+    transform: translateX(15%);
+    width: 67vw;
+    max-width: 95vw;
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.logo-shadow {
+    position: relative;
+    z-index: 1;
+    /* Strong shadow for overlap effect */
+    text-shadow:
+        2px 2px 8px rgba(0,0,0,0.35),
+        0 4px 16px rgba(0,0,0,0.18);
+}
+
+.showcaseimage {
+    width: 286.7px;
+    height: auto;
 }
