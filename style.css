@@ -688,7 +688,7 @@ label:hover {
 }
 
 .abouttext{
-    font-size: 1vw;
+    font-size: 1.3vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -699,6 +699,9 @@ label:hover {
     #aboutteacher {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
+    }
+    .abouttext {
+        font-size: 5vw;
     }
 }
 
@@ -753,6 +756,13 @@ label:hover {
 #home>h1 {
     font-size: 4.5vw;
     font-weight: 900;
+}
+
+@media screen and (max-width: 768px) {
+    #home>h1 {
+        font-size: 10vw;
+    }
+    
 }
 
 #home h2 {
