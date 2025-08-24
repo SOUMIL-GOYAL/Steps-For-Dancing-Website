@@ -510,7 +510,7 @@ label:hover {
     transition: background 0.2s;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 770px) {
     #schedule, #schedule thead, #schedule tbody, #schedule th, #schedule td, #schedule tr {
         display: block;
         width: 100%;
@@ -518,25 +518,29 @@ label:hover {
     #schedule thead {
         display: none;
     }
-    #schedule tr {
-        margin-bottom: 18px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        border-radius: 10px;
-        background: #fff;
-        padding: 10px 0;
+    #schedule th {
+        display: none;
+    }
+    #schedule td::before {
+        font-weight: 700;
+    }
+    #schedule td:nth-of-type(1)::before {
+        content: "Type of Dance: ";
+    }
+    #schedule td:nth-of-type(2)::before {
+        content: "Location: ";
+    }
+    #schedule td:nth-of-type(3)::before {
+        content: "Time (CST): ";
+    }
+    #schedule td:nth-of-type(4)::before {
+        content: "Day: ";
     }
     #schedule td {
-        padding: 10px 16px;
-        text-align: left;
-        position: relative;
+        display: grid;
         font-size: 0.98rem;
-    }
-    #schedule td:before {
-        content: attr(data-label);
-        font-weight: bold;
-        color: var(--colortheme);
-        display: block;
-        margin-bottom: 4px;
+        gap: 0.5rem;
+        grid-template-columns: 15ch auto;
     }
 }
 
@@ -688,7 +692,7 @@ label:hover {
 }
 
 .abouttext{
-    font-size: 1vw;
+    font-size: 1.3vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -699,6 +703,9 @@ label:hover {
     #aboutteacher {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
+    }
+    .abouttext {
+        font-size: 5vw;
     }
 }
 
@@ -753,6 +760,13 @@ label:hover {
 #home>h1 {
     font-size: 4.5vw;
     font-weight: 900;
+}
+
+@media screen and (max-width: 768px) {
+    #home>h1 {
+        font-size: 10vw;
+    }
+    
 }
 
 #home h2 {
