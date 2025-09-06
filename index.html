@@ -30,62 +30,70 @@
 </head>
 
 <body class="container-fluid">
-    <div id="navigation">
-        <div>
-            <button type="button" onclick="togglenav()">
-				<i class="fas fa-bars"></i>
-			</button>
-        </div>
-        <div id="scrollbox">
-            <div id="navlist">
-                <ul>
-                    <li>
-                        <a href="#home">
-                            <i class="far fa-home"></i>
-                            <h4>Home</h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about">
-                            <i class="far fa-info-circle"></i>
-                            <h4>About</h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#services">
-                            <i class="far fa-hands-helping"></i>
-                            <h4>Services</h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#classschedule">
-                            <i class="far fa-calendar-alt"></i>
-                            <h4>Class Schedule</h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#showcase">
-                            <i class="far fa-play"></i>
-                            <h4>Showcase</h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#testimonials">
-                            <i class="far fa-comments"></i>
-                            <h4>Testimonials</h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#register">
-                            <i class="far fa-user-plus"></i>
-                            <h4>Register</h4>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
+    <button title="toggle navigation" type="button" id="navbartoggle"> 
+        <i class="fa-solid fa-bars"></i> 
+    </button>
+    <nav id="navigation">
+
+        <ul id="navlist" class="autowidth">
+            <li>
+                <a href="#home" class="merge">
+                    <div class="nav-circle-wrapper">
+                        <i class="navicon far fa-home"></i>
+                    </div>
+                    <h4>Home</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#about" class="merge">
+                    <div class="nav-circle-wrapper">
+                        <i class="navicon far fa-info-circle"></i>
+                    </div>
+                    <h4>About</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#services" class="merge">
+                    <div class="nav-circle-wrapper">
+                        <i class="navicon far fa-hands-helping"></i>
+                    </div>
+                    <h4>Services</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#classschedule" class="merge">
+                    <div class="nav-circle-wrapper">
+                        <i class="navicon far fa-calendar-alt"></i>
+                    </div>
+                    <h4>Class Schedule</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#showcase" class="merge">
+                    <div class="nav-circle-wrapper">
+                        <i class="navicon far fa-play"></i>
+                    </div>
+                    <h4>Showcase</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#testimonials" class="merge">
+                    <div class="nav-circle-wrapper">
+                        <i class="navicon far fa-comments"></i>
+                    </div>
+                    <h4>Testimonials</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#register" class="merge">
+                    <div class="nav-circle-wrapper">
+                        <i class="navicon far fa-user-plus"></i>
+                    </div>
+                    <h4>Register</h4>
+                </a>
+            </li>
+        </ul>
+    </nav>
     <div id="all">
         <div id="home" class="section-container">
             <img src="MomLogoSFD.svg" alt="Logo" class="logo-bg-svg">
@@ -105,21 +113,15 @@
             <div id="aboutschool">
                 <img src="aboutteacherv2.jpg">
                 <div class="poppins abouttext">
-                    Trained in Kathak for <strong>eight years</strong> at <em>Bhatkhande Sangeet Mahavidyalaya, Lucknow</em> under <strong>Lt. Dr. Madhuker Anand</strong>, 
-                    disciple of the legendary <strong>Pandit Birju Maharaj</strong>, she brings deep classical expertise along with modern Bollywood flair. 
-                    With over <strong>20 years of experience</strong> across India, Singapore, and now Houston, Dolly has turned her lifelong passion into a profession. 
-                    She believes in authenticity, creativity, and that anyone—child or adult—can find joy in dance. 
-                    Her teaching philosophy, <strong>“Learning with Fun”</strong>, combines structured training with performance opportunities, competitions, 
-                    and recognized certifications in a supportive atmosphere.                </div>
+                    Trained in Kathak for <strong>eight years</strong> at <em>Bhatkhande Sangeet Mahavidyalaya, Lucknow</em> under <strong>Lt. Dr. Madhuker Anand</strong>, disciple of the legendary <strong>Pandit Birju Maharaj</strong>, she brings deep
+                    classical expertise along with modern Bollywood flair. With over <strong>20 years of experience</strong> across India, Singapore, and now Houston, Dolly has turned her lifelong passion into a profession. She believes in authenticity,
+                    creativity, and that anyone—child or adult—can find joy in dance. Her teaching philosophy, <strong>“Learning with Fun”</strong>, combines structured training with performance opportunities, competitions, and recognized certifications
+                    in a supportive atmosphere. </div>
             </div>
             <div id="aboutteacher">
                 <div class="poppins abouttext">
-                    <em>Steps for Dancing</em> is a school dedicated to nurturing a <strong>love for dance</strong> and building <strong>confidence</strong> in every student. 
-                    Offering <strong>Bollywood</strong>, <strong>Kathak</strong>, and <strong>fitness-based dance</strong> for all age groups and skill levels, classes are tailored to individual needs 
-                    while keeping the <strong>joy of movement</strong> at the center. Students receive training for <strong>internationally recognized certifications</strong> 
-                    and the chance to <strong>perform on stage</strong> and in <strong>competitions</strong>. 
-                    More than a school, <em>Steps for Dancing</em> is a <strong>community where passion meets opportunity</strong>, and dancers of all ages 
-                    can grow, shine, and share in the art of dance.
+                    <em>Steps for Dancing</em> is a school dedicated to nurturing a <strong>love for dance</strong> and building <strong>confidence</strong> in every student. Offering <strong>Bollywood</strong>, <strong>Kathak</strong>, and <strong>fitness-based dance</strong>                    for all age groups and skill levels, classes are tailored to individual needs while keeping the <strong>joy of movement</strong> at the center. Students receive training for <strong>internationally recognized certifications</strong>                    and the chance to <strong>perform on stage</strong> and in <strong>competitions</strong>. More than a school, <em>Steps for Dancing</em> is a <strong>community where passion meets opportunity</strong>, and dancers of all ages can grow,
+                    shine, and share in the art of dance.
                 </div>
                 <img src="aboutschoolv2.jpg">
             </div>
@@ -279,19 +281,16 @@
                 </tr>
             </table>
             <div id="eventcalendar" class="section-container">
-            <div class="semi-sectionheader">
-                <h1>Event Calendar</h1>
-            </div>
-            <div style="display: flex; justify-content: center;">
-                <iframe
-                    src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showTitle=0&src=N2ZkMzRkZTViZDliN2ZhNTIwNzVhMDFkMzBjMzAwZWFjYjhhN2Y3YjAzMjQ1ZTZmMWI2N2M1OGNmMTUwNGQzMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTgyMTZiYmY2YjNkNWI5Y2ExNTM0N2Q0NWYzZTUyMTA2YjcyNGMxMmJiNTNjZTNmN2U0NWVhMzVjNjVhYzk1ZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=NjhiNGNmZTA4MDdmZjg3NjU1MTkyMDNkMjM2YjhkN2Q0MzdkZDNjM2QxOWI3ODg4ZjliMTE2NmM1ZTZhOTkwOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YmRhMmEyMDU2NjBiZmQyODkwZGVjODE5NWVkNmIwYzhmMzA0YjI0MmQ5ODQ3MTM4YWZlYTIwMGQyNDdiOTUyY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTAwOWYxZmQ4ZjRhNWE3ZjI3ZjdkZWI0OWFiMWM0YzU4ZTcyZmExMWRjNGVkMDM3NDhkYjU1ZGRiNGU4NzhhY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%2333b679&color=%23d50000&color=%23039be5&color=%238e24aa&color=%23f6bf26"
-                    style="border:0; width:100vw; max-width:1200px; height:900px;" 
-                    frameborder="0" 
-                    scrolling="no">
+                <div class="semi-sectionheader">
+                    <h1>Event Calendar</h1>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showTitle=0&src=N2ZkMzRkZTViZDliN2ZhNTIwNzVhMDFkMzBjMzAwZWFjYjhhN2Y3YjAzMjQ1ZTZmMWI2N2M1OGNmMTUwNGQzMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTgyMTZiYmY2YjNkNWI5Y2ExNTM0N2Q0NWYzZTUyMTA2YjcyNGMxMmJiNTNjZTNmN2U0NWVhMzVjNjVhYzk1ZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=NjhiNGNmZTA4MDdmZjg3NjU1MTkyMDNkMjM2YjhkN2Q0MzdkZDNjM2QxOWI3ODg4ZjliMTE2NmM1ZTZhOTkwOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YmRhMmEyMDU2NjBiZmQyODkwZGVjODE5NWVkNmIwYzhmMzA0YjI0MmQ5ODQ3MTM4YWZlYTIwMGQyNDdiOTUyY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTAwOWYxZmQ4ZjRhNWE3ZjI3ZjdkZWI0OWFiMWM0YzU4ZTcyZmExMWRjNGVkMDM3NDhkYjU1ZGRiNGU4NzhhY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%2333b679&color=%23d50000&color=%23039be5&color=%238e24aa&color=%23f6bf26"
+                        style="border:0; width:100vw; max-width:1200px; height:900px;" frameborder="0" scrolling="no">
                 </iframe>
+                </div>
             </div>
         </div>
-        </div>  
         <div id="showcase" class="section-container">
             <div class="sectionheader">
                 <h1>Showcase</h1>
@@ -862,10 +861,7 @@
                 <h1>Register</h1>
             </div>
             <div style="display: flex; justify-content: center;">
-                <iframe id="gform"
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSeRd9mQ8s5s2L9fqh1qzg57FHeEbek99RXCCI-uQwcVZkMwSA/viewform?embedded=true" 
-                    frameborder="0" 
-                    scrolling="auto">
+                <iframe id="gform" src="https://docs.google.com/forms/d/e/1FAIpQLSeRd9mQ8s5s2L9fqh1qzg57FHeEbek99RXCCI-uQwcVZkMwSA/viewform?embedded=true" frameborder="0" scrolling="auto">
                     Loading…
                 </iframe>
             </div>
