@@ -20,31 +20,56 @@ window.onload = function () {
     background();
 }
 
-// Debounce utility
-function debounce(fn, delay) {
-  let timer;
-  return function (...args) {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn.apply(this, args), delay);
-  };
+// // Debounce utility
+// function debounce(fn, delay) {
+//   let timer;
+//   return function (...args) {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => fn.apply(this, args), delay);
+//   };
+// }
+
+// // Create a debounced version of makepositions
+// const debouncedMakepositions = debounce(makepositions, 100); // 200ms delay
+
+// // ResizeObserver setup
+// const resizeObserver = new ResizeObserver(entries => {
+//   for (let entry of entries) {
+//     if (entry.target.classList.contains('filteriem')) {
+//       debouncedMakepositions();
+//     }
+//   }
+// });
+
+// // Observe all current .filteriem elements
+// document.querySelectorAll('.filteriem').forEach(el => {
+//   resizeObserver.observe(el);
+// });
+
+
+function makepositions() {
+    // Your logic here
+    console.log('Element resized, running makepositions()');
 }
 
-// Create a debounced version of makepositions
-const debouncedMakepositions = debounce(makepositions, 100); // 200ms delay
-
-// ResizeObserver setup
+// Create a ResizeObserver instance
 const resizeObserver = new ResizeObserver(entries => {
-  for (let entry of entries) {
-    if (entry.target.classList.contains('filteriem')) {
-      debouncedMakepositions();
+    for (let entry of entries) {
+        if (entry.target.classList.contains('filteriem')) {
+            sizeit();
+            makepositions();
+            makesizeinshowcase();
+            background();
+            console.log('resize observed');
+        }
     }
-  }
 });
 
-// Observe all current .filteriem elements
+// Observe all elements with the class 'filteriem'
 document.querySelectorAll('.filteriem').forEach(el => {
-  resizeObserver.observe(el);
+    resizeObserver.observe(el);
 });
+
 
 $("a[href^=http").prop("target", "_blank");
 
@@ -326,13 +351,13 @@ function navactive() {
 }
 
 //SCROLL WHEN LINKS ARE CLICKED
-$("#navigation a, footer a[href='#top'], a[href^='#']").on('click', function(event) {
+$("#navigation a, footer a[href='#top'], a[href^='#']").on('click', function (event) {
     if (this.hash !== "") {
         event.preventDefault();
         var hash = this.hash;
         $('html, body').animate({
             scrollTop: $(hash).offset().top
-        }, 800, function() {
+        }, 800, function () {
             window.location.hash = hash;
         });
     }
@@ -342,7 +367,7 @@ $("#navigation a, footer a[href='#top'], a[href^='#']").on('click', function(eve
 //HIGHLIGHT NAVIGATION WHEN IN POSITION
 var active;
 
-$(window).scroll(function() {
+$(window).scroll(function () {
     navactive();
 });
 navactive();
@@ -350,7 +375,7 @@ navactive();
 function navactive() {
     var sections = $(".section-container");
     var currentScroll = $(this).scrollTop();
-    sections.each(function() {
+    sections.each(function () {
         var divPosition = $(this).offset().top;
         if (divPosition - 1 < currentScroll) {
             active = $(this);
@@ -361,7 +386,7 @@ function navactive() {
     now[0].className += " active"
 }
 
-$("#navbartoggle").click(function() {
+$("#navbartoggle").click(function () {
     $("#navlist").toggleClass("autowidth");
 });
 
