@@ -287,6 +287,9 @@ iframe {
     height: auto;
 }
 
+iframe.longer {
+    height: 400px;
+}
 .content-holder {
     padding: 10px;
     position: relative;
