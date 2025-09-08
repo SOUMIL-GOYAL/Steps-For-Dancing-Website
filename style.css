@@ -301,8 +301,8 @@ iframe {
     max-width: 100%;
 }
 
-.show {
-    display: inline;
+.showit {
+    display: flex !important;
 }
 
 @keyframes zoom-away {
@@ -398,7 +398,9 @@ label:hover {
 }
 
 .filteritem {
-    text-align: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -424,7 +426,11 @@ label:hover {
 }
 
 .embed {
-    padding-top: 20px;
+    margin-top: 20px;
+    height: 315px;
+    width: 560px;
+    width: 80%;
+    height: auto;
 }
 
 #rowofitems {
@@ -464,6 +470,9 @@ label:hover {
 
 .activebutton {
     color: #1f74c2 !important;
+}
+.image-infos {
+    text-align: center;
 }
 
 
@@ -879,16 +888,25 @@ label:hover {
     padding: 5px;
     display: none;
     z-index: 50;
+
+    	background: none;
+	border: none;
+	color: var(--colortheme);
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	margin: 15px;
+	display: none;
+	font-size: 15px;
 }
 
 #navbartoggle i {
-    font-size: 40px;
+    font-size: 20px;
     transition: color .5s ease-in-out;
 }
 
-#navbartoggle:hover {
-    color: var(--textontheme);
-}
+
 
 .autowidth {
     width: 100% !important;
